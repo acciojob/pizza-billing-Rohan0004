@@ -17,6 +17,12 @@ public class Pizza {
     private boolean isToppingsAdded;
     private boolean isBagTaken;
 
+    private boolean isDeluxe;
+
+    public void setDeluxe(boolean deluxe) {
+        isDeluxe = deluxe;
+    }
+
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
@@ -59,8 +65,8 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        if(isCheeseAdded) bill+="Extra Cheese Added: "+cheesePrice+"\n";
-        if(isToppingsAdded) {
+        if(isCheeseAdded && !isDeluxe) bill+="Extra Cheese Added: "+cheesePrice+"\n";
+        if(isToppingsAdded && !isDeluxe) {
             if(this.isVeg) bill+="Extra Toppings Added: "+toppingsPriceVeg+"\n";
             else bill+="Extra Toppings Added: "+toppingsPriceNonVeg+"\n";
         }
