@@ -16,13 +16,7 @@ public class Pizza {
     private boolean isCheeseAdded;
     private boolean isToppingsAdded;
     private boolean isBagTaken;
-
-    private boolean isDeluxe;
     private boolean isBillGenerated;
-
-    public void setDeluxe(boolean deluxe) {
-        isDeluxe = deluxe;
-    }
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -68,8 +62,8 @@ public class Pizza {
         // your code goes here
         if(isBillGenerated) return this.bill;
         isBillGenerated=true;
-        if(isCheeseAdded && !isDeluxe) bill+="Extra Cheese Added: "+cheesePrice+"\n";
-        if(isToppingsAdded && !isDeluxe) {
+        if(isCheeseAdded) bill+="Extra Cheese Added: "+cheesePrice+"\n";
+        if(isToppingsAdded) {
             if(this.isVeg) bill+="Extra Toppings Added: "+toppingsPriceVeg+"\n";
             else bill+="Extra Toppings Added: "+toppingsPriceNonVeg+"\n";
         }
