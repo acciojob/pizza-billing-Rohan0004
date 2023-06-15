@@ -18,6 +18,7 @@ public class Pizza {
     private boolean isBagTaken;
 
     private boolean isDeluxe;
+    private boolean isBillGenerated;
 
     public void setDeluxe(boolean deluxe) {
         isDeluxe = deluxe;
@@ -65,6 +66,8 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
+        if(isBillGenerated) return this.bill;
+        isBillGenerated=true;
         if(isCheeseAdded && !isDeluxe) bill+="Extra Cheese Added: "+cheesePrice+"\n";
         if(isToppingsAdded && !isDeluxe) {
             if(this.isVeg) bill+="Extra Toppings Added: "+toppingsPriceVeg+"\n";
